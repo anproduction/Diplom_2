@@ -1,18 +1,8 @@
 import pytest
 import requests
-import random
-import string
-
 from endpoints import REGISTER
+from helpers import random_email, random_password, random_name  # импортируем функции генерации
 
-def random_email():
-    return f"user_{''.join(random.choices(string.ascii_lowercase + string.digits, k=8))}@example.com"
-
-def random_password():
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=12))
-
-def random_name():
-    return "User" + ''.join(random.choices(string.ascii_letters, k=6))
 
 @pytest.fixture
 def unique_user_data():
@@ -21,6 +11,7 @@ def unique_user_data():
         "password": random_password(),
         "name": random_name()
     }
+
 
 @pytest.fixture
 def registered_user(unique_user_data):
