@@ -9,3 +9,9 @@ INVALID_INGREDIENTS = [
     "12345",
     "non_existing_id"
 ]
+
+INVALID_LOGIN_CREDENTIALS = [
+    ("nonexistent@example.com", "wrongpass"),
+    ("", "somepassword"),
+    ("user@example.com", ""),
+]
